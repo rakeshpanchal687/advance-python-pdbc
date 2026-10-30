@@ -11,7 +11,12 @@ def test_add():
         'address': 'Indore'
     }
     model = UserModel()
-    model.add(data)
+    try:
+        model.add(data)
+    except Exception as e:
+        print(e)
+
+    # model.add(data)
 
 def test_update():
     data = {
@@ -44,9 +49,6 @@ def find_by_login_id():
 
 def test_search():
     params = {}
-    # params['first_name'] = 'Rakesh'
-    # params['last_name'] = 'Panchal'
-    # params['login_id'] = 'rakesh101'
     params['pageNo'] = 1
     params['pageSize'] = 5
     model = UserModel()
@@ -54,7 +56,7 @@ def test_search():
     for data in list:
         print(data['id'], '\t', data['first_name'], '\t', data['last_name'], '\t', data['login_id'], '\t', data['password'], '\t', data['dob'], '\t', data['address'])
 
-# test_add()
+test_add()
 # test_update()
 # test_delete()
 # test_get()

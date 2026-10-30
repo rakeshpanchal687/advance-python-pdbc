@@ -1,6 +1,5 @@
 import pymysql
 
-
 class collegeModel:
 
     def next_pk(self):

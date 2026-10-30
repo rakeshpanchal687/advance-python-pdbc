@@ -40,8 +40,7 @@ def testGet():
     list = model.get(1)
     for data in list:
         print(data['id'], '\t', data['roll_no'], '\t', data['name'], '\t', data['physics'], '\t', data['chemistry'],
-              '\t',
-              data['maths'], )
+              '\t',data['maths'], )
 
 
 def testFindByroll_no():
@@ -49,8 +48,7 @@ def testFindByroll_no():
     list = model.findByRoll(103)
     for data in list:
         print(data['id'], '\t', data['roll_no'], '\t', data['name'], '\t', data['physics'], '\t', data['chemistry'],
-              '\t',
-              data['maths'], )
+              '\t', data['maths'], )
 
 
 def test_Search():
@@ -66,9 +64,9 @@ def test_Search():
               obj['maths'], )
 
 
-testAdd()
+# testAdd()
 # testUpdate()
 # testRead()
 # testGet()
 # testFindByroll_no()
-# test_Search()
+test_Search()

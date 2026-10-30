@@ -69,15 +69,14 @@ class MarksheetModel:
         cursor.execute(sql, data)
         result = cursor.fetchall()
 
-        res = []  # Ye line zaroori hai
-
+        list = []
         columnName = ['id', 'roll_no', 'name','physics', 'chemistry', 'maths' ]
 
         for x in result:
-            res.append({columnName[i]: x[i]for i, _ in enumerate(x)})
+            list.append({columnName[i]: x[i]for i, _ in enumerate(x)})
         cursor.close()
         connection.close()
-        return res
+        return list
 
     def findByRoll(self, roll_no):
         connection = pymysql.connect(host='localhost', port=3306, user='root', password='root',
@@ -90,20 +89,17 @@ class MarksheetModel:
         cursor.execute(sql, data)
         result = cursor.fetchall()
 
-        res = []  # YAHI LINE MISSING THI
+        list = []
 
         columnName = ['id', 'roll_no', 'name', 'physics', 'chemistry', 'maths']
 
         for x in result:
-            res.append({
-                columnName[i]: x[i]
-                for i, _ in enumerate(x)
-            })
+            list.append({columnName[i]: x[i]for i, _ in enumerate(x)})
 
         cursor.close()
         connection.close()
 
-        return res
+        return list
 
     def search(self, param):
         id = param.get('id', 0)
@@ -139,9 +135,9 @@ class MarksheetModel:
         cursor.execute(sql)
         result = cursor.fetchall()
         columnName = ("id", "roll_no", "name", "physics", "chemistry", "maths")
-        res = []
+        list = []
         for x in result:
             # print({columnName[i]: x[i] for i, _ in enumerate(x)})
-            res.append({columnName[i]: x[i] for i, _ in enumerate(x)})
+            list.append({columnName[i]: x[i] for i, _ in enumerate(x)})
         connection.close()
-        return res
+        return list

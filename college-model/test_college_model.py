@@ -1,26 +1,30 @@
 from college_model import collegeModel
 
 def test_add():
-    data = {
-        'id': '7',
-        'name': 'John Doe',
-        'address': '123 Main St',
-        'city': 'Anytown',
-        'state': 'CA',
-        'phone_no': '9131085107',
-    }
+    data = {}
+    data['id']=7
+    data['name']='rakesh'
+    data['address']= 'main road'
+    data['city']='bhopal'
+    data['state']='up'
+    data['phone_no']=9131085107
+
+
     model = collegeModel()
-    model.add(data)
+    try:
+        model.add(data)
+    except Exception as e:
+        print(e)
+    # model.add(data)
 
 def test_update():
-    data = {
-        'id': '7',
-        'name': 'rakesh',
-        'address': '1255 Main road',
-        'city': 'dubai',
-        'state': 'mp',
-        'phone_no': '8358090606'
-    }
+    data = {}
+    data['id'] = 7
+    data['name'] = 'raj'
+    data['address'] = 'main road'
+    data['city'] = 'bhopal'
+    data['state'] = 'up'
+    data['phone_no'] = 9131085107
     model = collegeModel()
     model.update(data)
 
@@ -30,6 +34,6 @@ def test_delete():
     model.delete(7)
 
 
-# test_add()
+test_add()
 # test_update()
-test_delete()
+# test_delete()
