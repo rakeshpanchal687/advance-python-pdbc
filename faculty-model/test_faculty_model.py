@@ -4,36 +4,39 @@ import datetime
 
 def test_add():
     data = {}
-    data['id'] = 3
+    data['id'] = 4
     data['first_name'] = 'harsh'
-    data['last_name'] = 'jain'
-    data['email'] = 'harshjain@gamil'
+    data['last_name'] = 'parmar'
+    data['email'] = 'harshparmar@gamil'
     data['password'] = 'harsh@123'
-    data['address'] = 'Near bus station'
+    data['address'] = 'bhawarkuwa'
     data['gender'] = 'male'
-    data['dob'] = datetime.date(2002, 5, 12)
-    data['college_id'] = 4
+    data['dob'] = datetime.date(2005, 7, 12)
+    data['college_id'] = 3
     data['course_id'] = 3
-    data['subject_id'] = 5
+    data['subject_id'] = 6
     faculty = FacultyModel()
     faculty.add(data)
-
+    # try:
+    #     faculty.add(data)
+    # except Exception as e:
+    #     print(e)
 
 # test_add()
 
 def test_update():
     data = {}
-    data['id'] = 2
-    data['first_name'] = 'Raju'
-    data['last_name'] = 'dhakad'
-    data['email'] = 'raju@gamil'
-    data['password'] = 'raju@123'
-    data['address'] = 'indore rajwada'
-    data['gender'] = 'male'
-    data['dob'] = datetime.date(2013, 2, 18)
-    data['college_id'] = 5
-    data['course_id'] = 1
-    data['subject_id'] = 1
+    data['id'] = 3
+    data['first_name'] = 'Ruchi'
+    data['last_name'] = 'jain'
+    data['email'] = 'ruchijain@gamil'
+    data['password'] = 'ruchi@123'
+    data['address'] = 'Near railway station'
+    data['gender'] = 'Female'
+    data['dob'] = datetime.date(1993, 2, 12)
+    data['college_id'] = 2
+    data['course_id'] = 3
+    data['subject_id'] = 5
     faculty = FacultyModel()
     faculty.update(data)
 
@@ -80,8 +83,7 @@ def test_search():
               data['password'], '\t', data['address'], '\t', data['gender']
               , '\t', data['dob'], '\t', data['college_id'], '\t', data['course_id'], '\t', data['subject_id'])
 
-
-# test_add()
+test_add()
 # test_update()
 # test_delete()
 # test_get()
