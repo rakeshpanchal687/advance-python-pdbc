@@ -87,7 +87,7 @@ class collegeModel:
         connection.close()
         return list
 
-    def findatabaseyname(self, name):
+    def find_by_name(self, name):
         connection = pymysql.connect(host='localhost', port=3306, user='root', password='root', database='advance_python')
         cursor = connection.cursor()
         sql = "select * from college where name = %s"

@@ -1,6 +1,6 @@
 from college_model_with_return import collegeModel
 
-def testAdd():
+def test_Add():
     params = {}
     params['id'] = 7
     params['name'] = 'abc'
@@ -11,7 +11,7 @@ def testAdd():
     model = collegeModel()
     model.add(params)
 
-def testUpdate():
+def test_Update():
     params = {}
     params['id'] = 7
     params['name'] = 'Rakesh'
@@ -23,18 +23,18 @@ def testUpdate():
     model.update(params)
 
 
-def testDelete():
+def test_Delete():
     model = collegeModel()
     model.delete(7)
 
-def testGet():
+def test_Get():
     model = collegeModel()
     list = model.get(1)
     for data in list:
         print(data['id'], '\t', data['name'], '\t', data['address'], '\t', data['state'], '\t', data['city'],              '\t',
               data['phone_no'], )
 
-def testFindByname():
+def Find_By_name():
     model = collegeModel()
     list = model.findByname('star college')
     for data in list:
@@ -51,8 +51,8 @@ def test_Search():
               data['phone_no'], )
 
 
-# testAdd()
-# testUpdate()
-# testGet()
-# testFindByname()
+test_Add()
+test_Update()
+test_Get()
+test_Delete()
 test_Search()

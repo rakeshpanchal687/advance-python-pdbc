@@ -5,7 +5,7 @@ class CourseModel:
 
     def next_pk(self):
         pk = 0
-        connection = pymysql.connect(host='localhost', port=3306, user='root', password='root', db='advance_python')
+        connection = pymysql.connect(host='localhost', port=3306, user='root', password='root', database='advance_python')
         cursor = connection.cursor()
         sql = "select max(id) from course"
         cursor.execute(sql)
@@ -31,7 +31,7 @@ class CourseModel:
             raise Exception("course name already exist")
 
 
-        connection = pymysql.connect(host='localhost', port=3306, user='root', password='root', db='advance_python')
+        connection = pymysql.connect(host='localhost', port=3306, user='root', password='root', database='advance_python')
         cursor = connection.cursor()
         sql = "insert into course values(%s, %s, %s, %s)"
         data = (id, name, description, duration)
@@ -45,7 +45,7 @@ class CourseModel:
         name = data['name']
         description = data['description']
         duration = data['duration']
-        connection = pymysql.connect(host='localhost', port=3306, user='root', password='root', db="advance_python")
+        connection = pymysql.connect(host='localhost', port=3306, user='root', password='root', database="advance_python")
         cursor = connection.cursor()
         sql = "update course set description = %s, duration = %s, name = %s where id = %s"
         data = (name, description, duration, id)
@@ -55,7 +55,7 @@ class CourseModel:
         print("course updated successfully")
 
     def delete(self, id):
-        connection = pymysql.Connection(host="localhost", port=3306, user="root", password="root", db="advance_python")
+        connection = pymysql.Connection(host="localhost", port=3306, user="root", password="root", database="advance_python")
         cursor = connection.cursor()
         sql = "delete from course where id = %s"
         data = (id)
@@ -65,7 +65,7 @@ class CourseModel:
         print("Data deleted successfully")
 
     def get(self, id):
-        connection = pymysql.Connection(host="localhost", port=3306, user="root", password="root", db="advance_python")
+        connection = pymysql.Connection(host="localhost", port=3306, user="root", password="root", database="advance_python")
         cursor = connection.cursor()
         sql = "select * from course where id = %s"
         data = (id)
@@ -80,7 +80,7 @@ class CourseModel:
         return list
 
     def find_by_name(self, name):
-        connection = pymysql.Connection(host="localhost", port=3306, user="root", password="root", db="advance_python")
+        connection = pymysql.Connection(host="localhost", port=3306, user="root", password="root", database="advance_python")
         cursor = connection.cursor()
         sql = "select * from course where name = %s"
         data = (name)
@@ -102,7 +102,7 @@ class CourseModel:
         page_no = data.get('page_no', 0)
         page_size = data.get('page_size', 0)
 
-        connection = pymysql.connect(host='localhost', port=3306, user='root', password='root', db='advance_python')
+        connection = pymysql.connect(host='localhost', port=3306, user='root', password='root', database='advance_python')
         cursor = connection.cursor()
         sql = "select * from course where 1=1"
         if id != 0:

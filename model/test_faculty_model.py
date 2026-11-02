@@ -25,17 +25,17 @@ def do_print(data):
 
 def test_add():
     data = {}
-    data['id'] = 4
-    data['first_name'] = 'h'
-    data['last_name'] = 'parmar'
-    data['email'] = 'harshparmar@gamil'
-    data['password'] = 'harsh@123'
-    data['address'] = 'bhawarkuwa'
+    data['id'] = 5
+    data['first_name'] = 'Shubham'
+    data['last_name'] = 'upadhiyay'
+    data['email'] = 'shubham@12gamil'
+    data['password'] = 'shubham123'
+    data['address'] = 'jammu'
     data['gender'] = 'male'
-    data['dob'] = datetime.date(2005, 7, 12)
-    data['college_id'] = 3
-    data['course_id'] = 3
-    data['subject_id'] = 6
+    data['dob'] = datetime.date(1998, 1, 5)
+    data['college_id'] = 4
+    data['course_id'] = 1
+    data['subject_id'] = 1
 
     college_list = collegeModel().get(data['college_id'])
     college_name = college_list[0].get('name')
@@ -61,17 +61,17 @@ def test_add():
 
 def test_update():
     data = {}
-    data['id'] = 2
-    data['first_name'] = 'Rajesh'
+    data['id'] = 3
+    data['first_name'] = 'Ruchi'
     data['last_name'] = 'jain'
-    data['email'] = 'rajeshjain@gamil'
-    data['password'] = 'rajesh@123'
-    data['address'] = 'bhopalrailway station'
+    data['email'] = 'ruchijain@gamil'
+    data['password'] = 'ruchi@123'
+    data['address'] = 'Near railway station'
     data['gender'] = 'Female'
     data['dob'] = datetime.date(1993, 2, 12)
-    data['college_id'] = 2
-    data['course_id'] = 3
-    data['subject_id'] = 5
+    data['college_id'] = 3
+    data['course_id'] = 1
+    data['subject_id'] = 1
 
     college_list = collegeModel().get(data['college_id'])
     college_name = college_list[0].get('name')

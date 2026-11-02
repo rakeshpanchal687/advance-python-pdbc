@@ -22,6 +22,7 @@ def test_add():
     # except Exception as e:
     #     print(e)
 
+
 # test_add()
 
 def test_update():
@@ -79,11 +80,19 @@ def test_search():
     model = FacultyModel()
     list = model.search(data)
     for data in list:
-        print(data['id'], '\t', data['first_name'], '\t', data['last_name'], '\t', data['email'], '\t',
-              data['password'], '\t', data['address'], '\t', data['gender']
-              , '\t', data['dob'], '\t', data['college_id'], '\t', data['course_id'], '\t', data['subject_id'])
+        print(data['id'], '\t',
+              data['first_name'], '\t',
+              data['last_name'], '\t',
+              data['email'], '\t',
+              data['password'], '\t',
+              data['address'], '\t',
+              data['gender'], '\t',
+              data['dob'], '\t',
+              data['college_id'], '\t',
+              data['course_id'], '\t',
+              data['subject_id'])
 
-test_add()
+# test_add()
 # test_update()
 # test_delete()
 # test_get()

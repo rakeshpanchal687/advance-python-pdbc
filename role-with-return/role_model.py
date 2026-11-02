@@ -5,7 +5,7 @@ class RoleModel:
 
     def next_pk(self):
         pk = 0
-        connection = pymysql.connect(host='localhost', port=3306, user='root', password='root', db='advance_python')
+        connection = pymysql.connect(host='localhost', port=3306, user='root', password='root', database='advance_python')
         cursor = connection.cursor()
         sql = "select max(id) from role"
         cursor.execute(sql)
@@ -23,7 +23,7 @@ class RoleModel:
         id = RoleModel.next_pk(self)
         name = data['name']
         description = data['description']
-        connection = pymysql.connect(host='localhost', port=3306, user='root', password='root', db='advance_python')
+        connection = pymysql.connect(host='localhost', port=3306, user='root', password='root', database='advance_python')
         cursor = connection.cursor()
         sql = "insert into role values(%s, %s, %s)"
         data = (id, name, description)
@@ -36,7 +36,7 @@ class RoleModel:
         id = data['id']
         name = data['name']
         description = data['description']
-        connection = pymysql.connect(host='localhost', port=3306, user='root', password='root', db="advance_python")
+        connection = pymysql.connect(host='localhost', port=3306, user='root', password='root', database="advance_python")
         cursor = connection.cursor()
         sql = "update role set name = %s, description = %s where id = %s"
         data = (name, description, id)
@@ -46,7 +46,7 @@ class RoleModel:
         print("college updated successfully")
 
     def delete(self, id):
-        connection = pymysql.Connection(host="localhost", port=3306, user="root", password="root", db="advance_python")
+        connection = pymysql.Connection(host="localhost", port=3306, user="root", password="root", database="advance_python")
         cursor = connection.cursor()
         sql = "delete from role where id = %s"
         data = (id)
@@ -56,7 +56,7 @@ class RoleModel:
         print("Data deleted successfully")
 
     def get(self, id):
-        connection = pymysql.Connection(host="localhost", port=3306, user="root", password="root", db="advance_python")
+        connection = pymysql.Connection(host="localhost", port=3306, user="root", password="root", database="advance_python")
         cursor = connection.cursor()
         sql = "select * from role where id = %s"
         data = (id)
@@ -71,7 +71,7 @@ class RoleModel:
         return list
 
     def find_by_name(self, name):
-        connection = pymysql.Connection(host="localhost", port=3306, user="root", password="root", db="advance_python")
+        connection = pymysql.Connection(host="localhost", port=3306, user="root", password="root", database="advance_python")
         cursor = connection.cursor()
         sql = "select * from role where name = %s"
         data = (name)
@@ -92,7 +92,7 @@ class RoleModel:
         page_no = data.get('page_no', 0)
         page_size = data.get('page_size', 0)
 
-        connection = pymysql.connect(host='localhost', port=3306, user='root', password='root', db='advance_python')
+        connection = pymysql.connect(host='localhost', port=3306, user='root', password='root', database='advance_python')
         cursor = connection.cursor()
         sql = "select * from role where 1=1"
         if id != 0:

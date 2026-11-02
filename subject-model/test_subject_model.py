@@ -16,7 +16,7 @@ def test_add():
     # subject.add(data)
 
 
-# test_add()
+test_add()
 
 
 def test_update():

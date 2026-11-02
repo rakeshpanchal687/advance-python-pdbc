@@ -56,7 +56,7 @@ def test_search():
     for data in list:
         print(data['id'], '\t', data['first_name'], '\t', data['last_name'], '\t', data['login_id'], '\t', data['password'], '\t', data['dob'], '\t', data['address'])
 
-test_add()
+# test_add()
 # test_update()
 # test_delete()
 # test_get()

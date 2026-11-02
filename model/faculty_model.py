@@ -35,11 +35,11 @@ class FacultyModel:
         course_name = data['course_name']
         subject_id = data['subject_id']
         subject_name = data['subject_name']
-        #
-        # faculty_exist = self.find_by_email(email)
-        #
-        # if len(faculty_exist) > 0:
-        #     raise Exception(" email already exist")
+
+        faculty_exist = self.find_by_email(email)
+
+        if len(faculty_exist) > 0:
+            raise Exception(" email already exist")
 
         connection = pymysql.Connection(host="localhost", port=3306, user="root", password="root",
                                         database="advance_python")
@@ -99,7 +99,7 @@ class FacultyModel:
         result = cursor.fetchall()
         columnName = (
             "id", "first_name", "last_name", "email", "password", "address", "gender", "dob", "college_id",
-            "college_name" ,"course_id", "course_name",
+            "college_name", "course_id", "course_name",
             "subject_id", "subject_name")
         list = []
         for x in result:
@@ -126,20 +126,20 @@ class FacultyModel:
         return list
 
     def search(self, data):
-        id = data.get('id',0)
-        first_name = data.get('first_name','')
-        last_name = data.get('last_name','')
-        email = data.get('email','')
-        password = data.get('password','')
-        address = data.get('address','')
-        gender = data.get('gender','')
-        dob = data.get('dob',0)
-        college_id = data.get('college_id','')
-        college_name = data.get('college_name','')
-        course_id = data.get('course_id','')
-        course_name = data.get('course_name','')
-        subject_id = data.get('subject_id','')
-        subject_name = data.get('subject_name','')
+        id = data.get('id', 0)
+        first_name = data.get('first_name', '')
+        last_name = data.get('last_name', '')
+        email = data.get('email', '')
+        password = data.get('password', '')
+        address = data.get('address', '')
+        gender = data.get('gender', '')
+        dob = data.get('dob', 0)
+        college_id = data.get('college_id', '')
+        college_name = data.get('college_name', '')
+        course_id = data.get('course_id', '')
+        course_name = data.get('course_name', '')
+        subject_id = data.get('subject_id', '')
+        subject_name = data.get('subject_name', '')
         page_no = data.get('page_no', 0)
         page_size = data.get('page_size', 0)
         connection = pymysql.connect(host='localhost', port=3306, user='root', password='root',
@@ -164,15 +164,15 @@ class FacultyModel:
             sql += " and dob = " + str(dob)
         if college_id != '':
             sql += " and college_id like '" + college_id + "%'"
-        if college_name !='':
+        if college_name != '':
             sql += " and college_name like '" + college_name + "%'"
         if course_id != '':
             sql += " and course_id like '" + course_id + "%'"
-        if course_name !='':
+        if course_name != '':
             sql += " and course_name like '" + course_name + "%'"
         if subject_id != '':
             sql += " and subject_id like '" + subject_id + "%'"
-        if subject_name !='':
+        if subject_name != '':
             sql += " and subject_name like '" + subject_name + "%'"
         if (page_size > 0):
             page_no = (page_no - 1) * page_size

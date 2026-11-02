@@ -5,7 +5,7 @@ class collegeModel:
 
     def next_pk(self):
         pk = 0
-        connection = pymysql.connect(host='localhost', port=3306, user='root', password='root', db='advance_python')
+        connection = pymysql.connect(host='localhost', port=3306, user='root', password='root', database='advance_python')
         cursor = connection.cursor()
         sql = "select max(id) from college"
         cursor.execute(sql)
@@ -25,12 +25,12 @@ class collegeModel:
         city = data['city']
         phone_no = data['phone_no']
 
-        college_exist = self.findByname(name)
+        college_exist = self.findatabaseyname(name)
 
         if len(college_exist) > 0:
             raise Exception("name already exist")
 
-        connection = pymysql.connect(host='localhost', port=3306, user='root', password='root', db='advance_python')
+        connection = pymysql.connect(host='localhost', port=3306, user='root', password='root', database='advance_python')
         cursor = connection.cursor()
         sql = "insert into college values(%s, %s, %s, %s, %s, %s)"
         data = (id, name, address, state, city, phone_no)
@@ -63,7 +63,7 @@ class collegeModel:
         print('Data updated successfully')
 
     def delete(self, id):
-        connection = pymysql.connect(host='localhost', port=3306, user='root', password='root', db='advance_python')
+        connection = pymysql.connect(host='localhost', port=3306, user='root', password='root', database='advance_python')
         cursor = connection.cursor()
         sql = "delete from college where id = %s"
         data = (id)
@@ -73,7 +73,7 @@ class collegeModel:
         print('data deleted successfully')
 
     def get(self, id):
-        connection = pymysql.connect(host='localhost', port=3306, user='root', password='root', db='advance_python')
+        connection = pymysql.connect(host='localhost', port=3306, user='root', password='root', database='advance_python')
         cursor = connection.cursor()
         sql = "select * from college where id = %s"
         data = (id)
@@ -87,8 +87,8 @@ class collegeModel:
         connection.close()
         return list
 
-    def findByname(self, name):
-        connection = pymysql.connect(host='localhost', port=3306, user='root', password='root', db='advance_python')
+    def find_by_name(self, name):
+        connection = pymysql.connect(host='localhost', port=3306, user='root', password='root', database='advance_python')
         cursor = connection.cursor()
         sql = "select * from college where name = %s"
         data = (name)
@@ -107,7 +107,7 @@ class collegeModel:
         address = data.get('address', 0)
         pageNo = data.get('pageNo', 0)
         pageSize = data.get('pageSize', 0)
-        connection = pymysql.connect(host='localhost', port=3306, user='root', password='root', db='advance_python')
+        connection = pymysql.connect(host='localhost', port=3306, user='root', password='root', database='advance_python')
         cursor = connection.cursor()
         sql = "select * from college where 1=1"
         if name != '':
